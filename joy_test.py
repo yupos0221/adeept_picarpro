@@ -52,6 +52,8 @@ if __name__ == '__main__':
     try:
         joys = pygame.joystick.Joystick(0)
         joys.init()
-        main(joys)
+        #main(joys)
     except pygame.error:
         print('error has occured')
+
+    main(joys)
