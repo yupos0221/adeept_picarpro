@@ -11,21 +11,39 @@ def main(joys) :
 
 
 
-    while True:
-        # PS4
-        turn = round(joys.get_axis(0),1)
-        forward = round(joys.get_axis(1),1)
-        yaw = round(joys.get_axis(2),1)
-        pitch = round(joys.get_axis(5),1)
+    # while True:
+    #     # PS4
+    #     turn = round(joys.get_axis(0),1)
+    #     forward = round(joys.get_axis(1),1)
+    #     yaw = round(joys.get_axis(2),1)
+    #     pitch = round(joys.get_axis(5),1)
         
-        print("forward: {:.1f}".format(forward))
-        print("turn: {:.1f}".format(turn))
-        print("yaw: {:.1f}".format(yaw))
-        print("pitch: {:.1f}".format(pitch))
+    #     print("forward: {:.1f}".format(forward))
+    #     print("turn: {:.1f}".format(turn))
+    #     print("yaw: {:.1f}".format(yaw))
+    #     print("pitch: {:.1f}".format(pitch))
 
 
-        pygame.event.pump()
-        time.sleep(0.01)
+    #     pygame.event.pump()
+    #     time.sleep(0.01)
+
+    while True:
+        for e in pygame.event.get():
+
+            # ジョイスティックのボタンの入力
+            if e.type == pygame.locals.JOYAXISMOTION:
+                turn = round(joys.get_axis(0),1)
+                forward = round(joys.get_axis(1),1)
+                yaw = round(joys.get_axis(2),1)
+                pitch = round(joys.get_axis(5),1)
+                print("forward: {:.1f}".format(forward))
+                print("turn: {:.1f}".format(turn))
+                print("yaw: {:.1f}".format(yaw))
+                print("pitch: {:.1f}".format(pitch))
+            elif e.type == pygame.locals.JOYBUTTONDOWN:
+                print('ボタン'+str(e.button)+'を押した')
+            elif e.type == pygame.locals.JOYBUTTONUP:
+                print('ボタン'+str(e.button)+'を離した')
 
  
  
