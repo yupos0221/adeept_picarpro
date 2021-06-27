@@ -96,7 +96,7 @@ def motor_right(status, direction, speed):#Motor 1 positive and negative rotatio
 	return direction
 
 
-def move(speed, direction, turn, radius=0.6):   # 0 < radius <= 1  
+def move(speed, direction, turn="no", radius=0.6):   # 0 < radius <= 1  
 	#speed = 100
 	if direction == 'forward':
 		if turn == 'right':
